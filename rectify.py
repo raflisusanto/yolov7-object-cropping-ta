@@ -127,16 +127,11 @@ def process_image(image_file, output_folder):
                                 )
 
                                 # Check if the width is shorter than the height
-                                cur_width = target_plate_width
-                                cur_height = target_plate_height
-
-                                while cur_width < cur_height:
+                                if target_plate_width < target_plate_height:
                                     # Rotate the image 90 degrees clockwise
                                     warped_plate = cv2.rotate(
                                         warped_plate, cv2.ROTATE_90_CLOCKWISE
                                     )
-                                    cur_width = warped_plate.shape[1]
-                                    cur_height = warped_plate.shape[0]
 
                                 # Flip the image horizontally
                                 warped_plate = cv2.flip(warped_plate, 1)
