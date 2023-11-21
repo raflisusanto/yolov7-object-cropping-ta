@@ -14,6 +14,9 @@ def process_image(image_file, output_folder):
         # Resize the image
         image = cv2.resize(image, (250, 200))
 
+        # Apply denoising
+        image = cv2.fastNlMeansDenoisingColored(image, None, 10, 10, 7, 21)
+
         # Convert the image to grayscale
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
