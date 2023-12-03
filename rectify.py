@@ -52,16 +52,8 @@ def process_image(image_file, output_folder):
         # Load the input image
         image = cv2.imread(os.path.join(dir, image_file))
 
-        # Image upscaling
-        # Define the scaling factor (4x upscale)
-        scale_factor = 2
-
-        # Calculate the new dimensions
-        new_width = image.shape[1] * scale_factor
-        new_height = image.shape[0] * scale_factor
-
         # Resize the image
-        image = cv2.resize(image, (new_width, new_height))
+        image = cv2.resize(image, (240, 240))
 
         # Apply denoising
         image = cv2.fastNlMeansDenoisingColored(image, None, 10, 10, 7, 21)
