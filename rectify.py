@@ -45,7 +45,7 @@ def order_corners(corners):
     return sorted_corners
 
 
-def process_image(image_file, input_folder, output_folder):
+def process_image(image_file, output_folder):
     # Try negative in the second loop if not warped
     is_warped = False
     for i in range(2):
@@ -53,7 +53,7 @@ def process_image(image_file, input_folder, output_folder):
             break
 
         # Load the input image
-        image = cv2.imread(os.path.join(input_folder, image_file))
+        image = cv2.imread(image_file)
 
         # Resize the image
         image = cv2.resize(image, (240, 240))
@@ -228,4 +228,4 @@ if __name__ == "__main__":
     # Iterate through images in the input folder
     for image_file in os.listdir(args.input_folder):
         image_path = os.path.join(args.input_folder, image_file)
-        process_image(image_path, args.input_folder, args.output_folder)
+        process_image(image_path, args.output_folder)
