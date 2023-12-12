@@ -65,7 +65,8 @@ def process_image(image_file, output_folder):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
         # Apply Histogram equalization
-        gray = cv2.equalizeHist(gray)
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(6, 6))
+        gray = clahe.apply(gray)
 
         if i == 1:
             gray = cv2.bitwise_not(gray)
