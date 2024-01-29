@@ -1,4 +1,7 @@
-# yolov7-object-cropping
+# yolov7-object-cropping + Rectify
+
+### For Rafli's TA Running Code Purposes
+I updated the code to integrate the cropping logic with my rectification code, it's best to just use my Kaggle to run the code as I already prepared all of the script. The version used in the TA is this version (v1.0.0)
 
 ### Steps to run Code
 - Clone the repository.
